@@ -21,11 +21,11 @@ const Signup = ({ onFormSwitch }) => {
       <form onSubmit={handleSubmit} className="my-form">
         <div className="input-div">
           <label htmlFor="name" className="name-label">Name</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" className="name-input" />
+          <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" className="name-input" placeholder="Fullname" />
         </div>
         <button type="submit" className="access-btn">Sign_up</button>
       </form>
-      <button onClick={() => onFormSwitch('Login')} type="submit">Have an account? login</button>
+      <button onClick={() => onFormSwitch('Login')} type="submit" className="signup-login">Have an account? login</button>
     </div>
   );
 };
