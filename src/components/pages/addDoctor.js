@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import './doc.css';
+import { createDoctor } from '../../redux/doctor/thunk';
 
 const AddDoctor = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [specialization, setSpecialization] = useState('');
   const [bio, setBio] = useState('');
@@ -11,21 +13,20 @@ const AddDoctor = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://[::1]:4000/api/v1/doctors', {
-        name, specialization, bio, fee, image,
-      });
-      if (response.status === 200) {
-        console.log('succeful:', response.data);
-      }
-      setName('');
-      setSpecialization('');
-      setBio('');
-      setFee('');
-      setImage('');
-    } catch (error) {
-      console.error('Login failed:', error);
+    if (name && specialization && bio && image && fee) {
+      dispatch(createDoctor({
+        name,
+        specialization,
+        bio,
+        image,
+        fee,
+      }));
     }
+    setName('');
+    setSpecialization('');
+    setBio('');
+    setFee('');
+    setImage('');
   };
   return (
     <main className="add-doctor">
