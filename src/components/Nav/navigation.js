@@ -54,10 +54,10 @@ const Navigation = ({ children }) => {
       <div className="all-container">
         <header>
           <div className="nav-head">
-            <div className="nav-logo">
-              <h2>BookItNow</h2>
-            </div>
             <nav className="side-nav">
+              <div className="nav-logo">
+                <h2>BookItNow</h2>
+              </div>
               <div>
                 {user ? (
                   <div>
