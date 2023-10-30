@@ -1,3 +1,71 @@
+@media only screen and (max-width: 768px) {
+  .auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .screen-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:
+      linear-gradient(
+        rgba(79, 186, 12, 0.7),
+        rgba(194, 246, 73, 0.8)
+      ),
+      url('./doctor-lady.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .my-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 1rem 0;
+  }
+
+  .my-form input {
+    outline-color: azure;
+    padding: 2px;
+    font-size: 17px;
+    border-radius: 10px;
+    border-style: groove;
+  }
+
+  .name-label {
+    font-size: 20px;
+    color: rgb(17, 17, 17);
+    display: none;
+  }
+
+  .access-btn {
+    padding: 2px 10px;
+    font-size: 18px;
+    background-color: rgb(245, 176, 73);
+    border-radius: 10px;
+    color: white;
+    border-style: none;
+  }
+
+  .signup-login {
+    height: 2rem;
+    background-color: rgb(246, 169, 53);
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 19px;
+    color: white;
+    border-style: none;
+  }
+}
+
 .auth-container {
   display: flex;
   flex-direction: column;
@@ -11,8 +79,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('./doctor-splash.jpg'), linear-gradient(to bottom, #ffd700, #ffc);
-  background-size: contain;
+  background-image:
+    linear-gradient(
+      rgba(79, 186, 12, 0.7),
+      rgba(194, 246, 73, 0.8)
+    ),
+    url('./doctor-lady.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -28,8 +101,8 @@
 
 .my-form input {
   outline-color: azure;
-  padding: 5px;
-  font-size: 20px;
+  padding: 2px;
+  font-size: 17px;
   border-radius: 10px;
   border-style: groove;
 }
@@ -42,13 +115,17 @@
 
 .access-btn {
   padding: 2px 10px;
-  font-size: 20px;
-  background-color: blanchedalmond;
+  font-size: 18px;
+  background-color: rgb(245, 176, 73);
+  border-radius: 10px;
+  color: white;
 }
 
 .signup-login {
   height: 2rem;
-  background-color: blanchedalmond;
-  padding: 5px;
-  font-size: 20px;
+  background-color: rgb(246, 169, 53);
+  border-radius: 10px;
+  padding: 3px;
+  font-size: 19px;
+  color: white;
 }
