@@ -21,7 +21,7 @@
     font-size: 17px;
     height: 30px;
     border-radius: 10px;
-    outline-style: none;
+    border: 1px solid ;
     border-color: rgba(233, 46, 124, 0.8);
     font-family: 'Lato', sans-serif;
     padding: 5px;
@@ -89,6 +89,7 @@
     height: 30px;
     border-radius: 10px;
     outline-style: none;
+    border: 1px solid;
     border-color: rgba(233, 46, 124, 0.8);
     font-family: 'Lato', sans-serif;
     padding: 5px;
