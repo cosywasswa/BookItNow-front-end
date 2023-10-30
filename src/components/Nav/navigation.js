@@ -9,6 +9,7 @@ import {
   FaPinterestP,
   FaCopyright,
   FaBars,
+  FaTimes,
 } from 'react-icons/fa';
 import './nav.css';
 import { useUser } from '../userAccess/userContext';
@@ -102,6 +103,7 @@ const Navigation = ({ children }) => {
               </div>
               <div className={`mob-container ${navActive ? 'active' : ''}`}>
                 <ul className="mob-nav-list">
+                  <span className="close-btn"><FaTimes onClick={handleNavActive} /></span>
                   {
         menuItem.map((item) => (
           <NavLink to={item.path} key={item.path} className="link" activeclassname="active" onClick={handleNavActive}>
@@ -122,7 +124,9 @@ const Navigation = ({ children }) => {
                   <FaCopyright />
                   <span>Copyright 2023</span>
                 </div>
-                <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>
+                <div className="logout-div">
+                  <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>
+                </div>
               </div>
             </nav>
           </div>
