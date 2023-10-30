@@ -65,13 +65,15 @@
   }
 
   .nav_socials-mob {
+    display: flex;
     color:white;
-    margin-top: 5rem;
+    margin-top: 2rem;
     font-size: 20px;
     font-family: 'Lato', sans-serif;
   }
 
   .nav_copyright-mob {
+    display: flex;
     color: white;
     font-size: 20px;
     font-family: 'Lato', sans-serif;
@@ -79,6 +81,7 @@
 
   .logout-btn {
     font-size: 18px;
+    background-color: rgb(33, 186, 194);
     font-family: 'Lato', sans-serif;
     padding: 5px;
     border-radius: 10px;
@@ -96,7 +99,7 @@
   }
 
   .side-nav {
-    margin-block: 3rem;
+   position: fixed;
   }
 
   .link-text {
@@ -141,10 +144,11 @@
     align-items: center;
     gap: 5px;
     margin-left: 2rem;
-    margin-top: 12rem;
+    margin-top: 10rem;
   }
 
   .nav_copyright {
+    display: flex;
     margin-left: 2rem;
     padding-top: 1rem;
   }
@@ -172,6 +176,7 @@
     font-weight: 700;
     padding: 2px;
     border-radius: 5px;
-    width: 70px;
+    width: 60px;
+    background-color: rgb(33, 186, 194);
   }
 }
