@@ -45,6 +45,13 @@
     list-style: none;
   }
 
+  .close-btn {
+    color: white;
+    position: relative;
+    left: 160px;
+    bottom: 30px;
+  }
+
   .mob-nav-list a {
     text-decoration: none;
     text-align: center;
@@ -58,7 +65,7 @@
   }
 
   .nav_socials-mob {
-    background-color: white;
+    color:white;
     margin-top: 5rem;
     font-size: 20px;
     font-family: 'Lato', sans-serif;
@@ -71,10 +78,13 @@
   }
 
   .logout-btn {
-    font-size: 16px;
-    background-color: rgb(116, 189, 8);
-    color: white;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    padding: 5px;
+    border-radius: 10px;
+    z-index: 10;
   }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -131,7 +141,7 @@
     align-items: center;
     gap: 5px;
     margin-left: 2rem;
-    margin-top: 13rem;
+    margin-top: 12rem;
   }
 
   .nav_copyright {
@@ -152,13 +162,16 @@
   }
 
   .logout {
-    margin-left: 4rem;
-    padding-top: 5px;
+    margin-left: 3rem;
+    padding-top: 3px;
   }
 
   .logout-btn {
-    font-size: 16px;
-    background-color: rgb(116, 189, 8);
-    color: white;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    padding: 2px;
+    border-radius: 5px;
+    width: 70px;
   }
 }
