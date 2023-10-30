@@ -43,7 +43,7 @@
    height: 400px;
    width:400px;
   } */
-.image-doctor{
-  object-fit:cover;
-  object-position:top center;
+.image-doctor {
+  object-fit: cover;
+  object-position: top center;
 }
