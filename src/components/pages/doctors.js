@@ -1,13 +1,13 @@
 import React from 'react';
+import DoctorsList from '../doctor/doctorlist';
 
 const Doctors = () => (
-  <div>
-    <div>Doctors</div>
-    <p>
-      this is a list of doctors just to test the container width and plan how to re edit and
-      confirm whether
-      it takes the whole width of the screen
-    </p>
+  <div className="flex flex-col justify-center lg:h-full">
+    <div>
+      <h1 className="text-center text-3xl">Doctors List</h1>
+      <p className="text-center text-gray-400">Please Select a Doctor</p>
+    </div>
+    <DoctorsList />
   </div>
 );
 

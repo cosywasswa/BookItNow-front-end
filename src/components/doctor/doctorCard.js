@@ -5,7 +5,7 @@ import SocialIcons from './socialIcons';
 const DoctorCard = ({
   id, name, image, specialization,
 }) => (
-  <div id={id} className="flex flex-col items-center">
+  <div id={id} className="flex flex-col items-center gap-1">
     <div className="doctor-image">
       <img src={image} alt={name} className="rounded-full image-doctor w-80 h-80 mx-auto border-2" />
     </div>

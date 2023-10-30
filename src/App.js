@@ -8,6 +8,7 @@ import NewReservation from './components/pages/newReservation';
 import MyReservations from './components/pages/myReservations';
 import AddDoctor from './components/pages/addDoctor';
 import DeleteDoctor from './components/pages/deleteDoctor';
+import DoctorDetails from './components/doctor/doctorDetails';
 import Layout from './components/Nav/layout';
 import { useUser } from './components/userAccess/userContext';
 
@@ -30,6 +31,7 @@ function App() {
           >
             <Route path="navigation" element={<Navigation />} />
             <Route path="doctors" element={<Doctors />} />
+            <Route path="/:doctorDetails" element={<DoctorDetails />} />
             <Route path="New-reservation" element={<NewReservation />} />
             <Route path="My-reservations" element={<MyReservations />} />
             <Route path="Add-doctor" element={<AddDoctor />} />

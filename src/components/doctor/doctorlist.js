@@ -12,7 +12,7 @@ const DoctorsList = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <>  
       <div className="grid md:grid-cols-3 lg:grid-cols-3 ">
         {doctors.map((doctor) => (
           <Link to={`/${doctor.id}`} key={doctor.id} className="border-2">

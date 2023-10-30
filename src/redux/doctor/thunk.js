@@ -6,7 +6,6 @@ const url = 'http://127.0.0.1:4000/api/v1';
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async (thunkAPI) => {
   try {
     const response = await axios.get(`${url}/doctors`);
-    console.log(response.data, 'now');
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
@@ -16,7 +15,6 @@ export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async (thun
 export const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id, thunkAPI) => {
   try {
     const response = await axios.get(`${url}/doctors/${id}`);
-    console.log(response.data, 'doctor details');
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
