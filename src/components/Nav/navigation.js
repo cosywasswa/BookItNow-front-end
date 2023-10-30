@@ -91,7 +91,7 @@ const Navigation = ({ children }) => {
                 <span>Copyright 2023</span>
               </div>
               <div className="logout">
-                <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>
+                <button className="logout-btn" type="button" onClick={handleLogout}>Log-out</button>
               </div>
             </nav>
           </div>
@@ -125,7 +125,7 @@ const Navigation = ({ children }) => {
                   <span>Copyright 2023</span>
                 </div>
                 <div className="logout-div">
-                  <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>
+                  <button className="logout-btn" type="button" onClick={handleLogout}>Log-out</button>
                 </div>
               </div>
             </nav>
