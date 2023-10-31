@@ -15,7 +15,7 @@ const doctorSlice = createSlice({
   name: 'doctor',
   initialState,
   reducers: {
-    
+
   },
   extraReducers: (builder) => {
     builder
