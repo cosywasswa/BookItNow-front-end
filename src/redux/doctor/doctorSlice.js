@@ -14,7 +14,9 @@ const initialState = {
 const doctorSlice = createSlice({
   name: 'doctor',
   initialState,
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder
     // fetch doctors

@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { FaChevronRight, FaCalendarDay } from 'react-icons/fa';
+import { useNavigate, useParams } from 'react-router-dom';
+import { BiLeftArrow } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { fetchDoctor } from '../../redux/doctor/thunk';
 
 const DoctorDetails = () => {
   const { doctorInfo } = useSelector((store) => store.doctor);
   const dispatch = useDispatch();
   const { doctorDetails } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchDoctor(doctorDetails));
   }, [dispatch, doctorDetails]);
@@ -15,11 +17,11 @@ const DoctorDetails = () => {
   return (
     <>
 
-      <div className="w-10/12 h-1/2 h-screen m-auto lg:flex lg:gap-2 lg:justify-center lg:mt-11">
-        <div className="basis-2/5">
-          <img src={doctorInfo.image} alt={doctorInfo.name} className="w-full object-contain h-96 lg:h-3/5" />
+      <div className="w-full p-5 h-1/2  flex flex-col items-center lg:flex-row lg:gap-6  lg:justify-center lg:items-center lg:mt-36 md:mt-36 relative">
+        <div className="lg:h-full">
+          <img src={doctorInfo.image} alt={doctorInfo.name} className="object-contain h-96" />
         </div>
-        <div className="flex flex-col gap-4 mt-4 lg:basis-1/4">
+        <div className="flex flex-col gap-4 w-3/4 mt-4 lg:basis-3/12 lg:self-start">
           <p className="text-2xl text-center">{doctorInfo.name}</p>
           <p className="text-center">
             <span className="mr-1 text-bold">specialization:</span>
@@ -50,7 +52,11 @@ const DoctorDetails = () => {
             <span className="font-light border border-white rounded-full p-1 ml-1"><FaChevronRight /></span>
           </button>
         </div>
-
+        <button type="button" className="absolute sm:top-0 left-0 p-4 lg:top-full md:top-full  rounded-e-full bg-lime-500" onClick={() => navigate('/doctors')}>
+          <BiLeftArrow
+            className="ml-2 text-white"
+          />
+        </button>
       </div>
 
     </>

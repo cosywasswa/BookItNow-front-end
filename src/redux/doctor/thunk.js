@@ -31,3 +31,6 @@ export const createDoctor = createAsyncThunk('doctors/createDoctor', async (data
     return thunkAPI.rejectWithValue(error.response.data);
   }
 });
+export const deleteDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) => {
+  await axios.delete(`${url}/doctors/${id}`);
+});
