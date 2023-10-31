@@ -9,6 +9,7 @@ import {
   FaPinterestP,
   FaCopyright,
   FaBars,
+  FaTimes,
 } from 'react-icons/fa';
 import './nav.css';
 import { useUser } from '../userAccess/userContext';
@@ -53,10 +54,10 @@ const Navigation = ({ children }) => {
       <div className="all-container">
         <header>
           <div className="nav-head">
-            <div className="nav-logo">
-              <h2>BookItNow</h2>
-            </div>
             <nav className="side-nav">
+              <div className="nav-logo">
+                <h2>BookItNow</h2>
+              </div>
               <div>
                 {user ? (
                   <div>
@@ -90,7 +91,7 @@ const Navigation = ({ children }) => {
                 <span>Copyright 2023</span>
               </div>
               <div className="logout">
-                <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>
+                <button className="logout-btn" type="button" onClick={handleLogout}>Log-out</button>
               </div>
             </nav>
           </div>
@@ -102,6 +103,7 @@ const Navigation = ({ children }) => {
               </div>
               <div className={`mob-container ${navActive ? 'active' : ''}`}>
                 <ul className="mob-nav-list">
+                  <span className="close-btn"><FaTimes onClick={handleNavActive} /></span>
                   {
         menuItem.map((item) => (
           <NavLink to={item.path} key={item.path} className="link" activeclassname="active" onClick={handleNavActive}>
@@ -122,7 +124,9 @@ const Navigation = ({ children }) => {
                   <FaCopyright />
                   <span>Copyright 2023</span>
                 </div>
-                <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>
+                <div className="logout-div">
+                  <button className="logout-btn" type="button" onClick={handleLogout}>Log-out</button>
+                </div>
               </div>
             </nav>
           </div>
@@ -137,6 +141,10 @@ const Navigation = ({ children }) => {
 };
 
 Navigation.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+
+Navigation.defaultProps = {
+  children: null,
 };
 export default Navigation;
