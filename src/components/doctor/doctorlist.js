@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import { fetchDoctors } from '../../redux/doctor/thunk';
 import DoctorCard from './doctorCard';
+import SwiperNavButtons from './swiperButtons';
 
 const DoctorsList = () => {
   const { doctors } = useSelector((store) => store.doctor);
@@ -12,20 +17,32 @@ const DoctorsList = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <div className="grid md:grid-cols-3 lg:grid-cols-3 ">
+    <div className="w-[80%] mx-auto overflow-x-hidden">
+      <Swiper
+        modules={[Navigation]}
+        spaceBetween={2}
+        slidesPerView={1}
+        breakpoints={{
+          768: {
+            slidesPerView: 3,
+          },
+        }}
+        className="mySwiper"
+      >
         {doctors.map((doctor) => (
-          <Link to={`/${doctor.id}`} key={doctor.id} className="border-2">
-            <DoctorCard
-              name={doctor.name}
-              image={doctor.image}
-              specialization={doctor.specialization}
-            />
-          </Link>
+          <SwiperSlide key={doctor.id}>
+            <Link to={`/${doctor.id}`} className="flex flex-col items-center gap-1 w-4/5 mx-auto">
+              <DoctorCard
+                name={doctor.name}
+                image={doctor.image}
+                specialization={doctor.specialization}
+              />
+            </Link>
+          </SwiperSlide>
         ))}
-      </div>
-    </>
-
+        <SwiperNavButtons />
+      </Swiper>
+    </div>
   );
 };
 
