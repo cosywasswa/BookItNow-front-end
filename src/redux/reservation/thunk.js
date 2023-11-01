@@ -9,6 +9,7 @@ const url = 'http://127.0.0.1:4000/api/v1'; // Replace with your API endpoint
 export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async (userId, thunkAPI) => {
   try {
     const response = await axios.get(`${url}/users/${userId}/reservations`);
+    console.log('Redux Store State:', response.data);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
