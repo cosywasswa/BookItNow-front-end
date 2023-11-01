@@ -1,67 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createReservation } from '../../redux/reservation/thunk';
 import { useUser } from '../userAccess/userContext';
 
 const NewReservation = () => {
+  // Initialize Redux dispatch hook
   const dispatch = useDispatch();
-  const user = useUser();
+
+  // Get user data from the context
+  const { user } = useUser();
+
+  if (user) {
+    userId = user.status.data.id;
+  }
+  console.log('user data id', userId);
+  // Local state variables for form inputs, loading state, and error handling
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Retrieve user ID from local storage when component mounts
-  useEffect(() => {
-    const storedUserId = localStorage.getItem('userId');
-    if (storedUserId) {
-      // Set user ID in the context if available in local storage
-      user.setUser({ id: storedUserId });
-    }
-  }, []); // Empty dependency array ensures this effect runs once after the initial render
-
-  // Set user ID as default value in the form
-  useEffect(() => {
-    if (user?.status?.data?.id) {
-      setDate(new Date().toISOString().split('T')[0]); // Autofill current date
-      setCity(user.status.data.city || ''); // Autofill city if available in user data
-    }
-  }, [user?.status?.data?.id]); // Dependency ensures this effect runs whenever user ID changes
-
+  // Form submission handler
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Validating form inputs
-    if (!user || !date || !city) {
-      setError('Please select a date and city.');
-      return;
-    }
-
+    // Set loading state and clear previous errors
     setIsLoading(true);
     setError(null);
 
     try {
-      // Constructing reservation data object with user ID from context
+      // Construct reservation data object
       const reservationData = {
-        userId: user?.status?.data?.id,
+        user_id: 1,
         date,
         city,
+        doctor_id: 1,
       };
 
-      // Dispatching createReservation action with reservationData
-      await dispatch(createReservation({ data: reservationData }));
+      // Dispatch asynchronous action using Redux Thunk to create reservation
+      await dispatch(createReservation(reservationData));
+
+      // Log success and handle further actions (e.g., redirect user)
       console.log('Reservation created successfully!');
-      // Optionally, you can redirect the user to a success page or show a success message.
+
+      // Clear form inputs after successful submission
+      setDate('');
+      setCity('');
     } catch (error) {
+      // Handle errors (e.g., show error message to the user)
       console.error('Error creating reservation:', error);
       setError('Error creating reservation. Please try again later.');
     } finally {
+      // Reset loading state regardless of success or failure
       setIsLoading(false);
     }
-
-    // Clearing form inputs
-    setDate('');
-    setCity('');
   };
 
   return (
