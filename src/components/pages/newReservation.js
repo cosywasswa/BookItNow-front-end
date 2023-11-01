@@ -5,7 +5,7 @@ import { useUser } from '../userAccess/userContext';
 
 const NewReservation = () => {
   const dispatch = useDispatch();
-  const user = useUser();
+  const { user } = useUser();
   const userId = user?.status?.data?.id; // Safely access the user ID
 
   // Local state variables for form inputs, loading state, and error handling
@@ -29,8 +29,13 @@ const NewReservation = () => {
     });
 
     try {
+      // Check if user ID is available
+      if (!userId) {
+        throw new Error('User ID is not available. Please login and try again.');
+      }
+
       const reservationData = {
-        userId: user?.status?.data?.id,
+        userId,
         doctorId,
         city,
         date,
@@ -48,7 +53,7 @@ const NewReservation = () => {
       setDate('');
     } catch (error) {
       // Handle errors (e.g., show error message to the user)
-      console.error('Error creating reservation:', error);
+      console.error('Error creating reservation:', error.message);
       setError('Error creating reservation. Please try again later.');
     } finally {
       // Reset loading state regardless of success or failure
