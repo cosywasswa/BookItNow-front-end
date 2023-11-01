@@ -11,6 +11,7 @@ import {
   FaBars,
   FaTimes,
   FaSignOutAlt,
+  FaHospitalUser,
 } from 'react-icons/fa';
 import './nav.css';
 import { useUser } from '../userAccess/userContext';
@@ -57,6 +58,7 @@ const Navigation = ({ children }) => {
           <div className="nav-head">
             <nav className="side-nav">
               <div className="nav-logo">
+                <FaHospitalUser className="hospital" />
                 <h2>BookItNow</h2>
               </div>
               <ul>
@@ -91,7 +93,12 @@ const Navigation = ({ children }) => {
             <nav className="mob-nav">
               <div className="mob-header">
                 <FaBars onClick={handleNavActive} />
-                <h1>BookItNow</h1>
+                <div className="logo-right">
+                  <h1 className="right-logo">
+                    <FaHospitalUser className="hospital" />
+                    BookItNow
+                  </h1>
+                </div>
               </div>
               <div className={`mob-container ${navActive ? 'active' : ''}`}>
                 <ul className="mob-nav-list">
