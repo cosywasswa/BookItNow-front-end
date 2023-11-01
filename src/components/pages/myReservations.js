@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations } from '../../redux/reservation/thunk';
+import { useUser } from '../userAccess/userContext';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const userId = 1;
-
+  const { user } = useUser();
+  let userId = null;
+  if (user) {
+    userId = user.status.data.id;
+  }
+  // get uer from localtorage here
   // Get reservations data from Redux store
   const { reservations } = useSelector((store) => store.reservationsList);
 
@@ -26,7 +31,7 @@ const MyReservations = () => {
             <th className="py-2 px-4 border">Id</th>
             <th className="py-2 px-4 border">Date</th>
             <th className="py-2 px-4 border">City</th>
-            <th className="py-2 px-4 border">User ID</th>
+            <th className="py-2 px-4 border">Doctor</th>
             {/* You can add more headers here if needed */}
           </tr>
         </thead>
@@ -38,8 +43,8 @@ const MyReservations = () => {
               <tr key={reservation.id} className="bg-white hover:bg-gray-100">
                 <td className="py-2 px-4 border">{reservation.id}</td>
                 <td className="py-2 px-4 border">{reservation.date}</td>
-                <td className="py-2 px-4 border">{reservation.user_id}</td>
-                <td className="py-2 px-4 border">{reservation.user_id}</td>
+                <td className="py-2 px-4 border">{reservation.city}</td>
+                <td className="py-2 px-4 border">{reservation.doctor.name}</td>
                 {/* Add more cells based on reservation properties */}
               </tr>
             );
