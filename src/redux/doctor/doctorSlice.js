@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchDoctor, fetchDoctors, createDoctor,
+  fetchDoctor, fetchDoctors, createDoctor, deleteDoctor,
 } from './thunk';
 
 const initialState = {
@@ -57,6 +57,10 @@ const doctorSlice = createSlice({
         state.isLoading = false;
         state.errors = true;
         state.errMsg = action.payload;
+      })
+      .addCase(deleteDoctor.fulfilled, (state, action) => {
+        const doctorId = action.payload;
+        state.doctors = state.doctors.filter((doctor) => doctor.id !== doctorId);
       });
   },
 });
