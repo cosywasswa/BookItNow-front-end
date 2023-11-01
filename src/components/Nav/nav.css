@@ -81,11 +81,14 @@
   }
 
   .logout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
-    background-color: rgb(103, 130, 132);
+    background-color: rgb(152, 156, 156);
     font-family: 'Lato', sans-serif;
-    padding: 5px;
-    border-radius: 10px;
+    padding: 2px;
+    border-radius: 5px;
     z-index: 10;
   }
 }
@@ -172,12 +175,15 @@
   }
 
   .logout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 15px;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     padding: 2px;
     border-radius: 5px;
-    width: 60px;
+    width: 80px;
     background-color: rgb(219, 233, 234);
   }
 }
