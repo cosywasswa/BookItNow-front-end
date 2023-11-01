@@ -6,14 +6,10 @@ import { useUser } from '../userAccess/userContext';
 const NewReservation = () => {
   // Initialize Redux dispatch hook
   const dispatch = useDispatch();
-
+  
   // Get user data from the context
-  const { user } = useUser();
-
-  if (user) {
-    userId = user.status.data.id;
-  }
-  console.log('user data id', userId);
+  const user = useUser();
+  
   // Local state variables for form inputs, loading state, and error handling
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
@@ -23,7 +19,7 @@ const NewReservation = () => {
   // Form submission handler
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
     // Set loading state and clear previous errors
     setIsLoading(true);
     setError(null);
@@ -31,18 +27,17 @@ const NewReservation = () => {
     try {
       // Construct reservation data object
       const reservationData = {
-        user_id: 1,
-        date,
-        city,
-        doctor_id: 1,
+        userId: user.status.data.id,
+        date: date,
+        city: city,
       };
 
       // Dispatch asynchronous action using Redux Thunk to create reservation
       await dispatch(createReservation(reservationData));
-
+      
       // Log success and handle further actions (e.g., redirect user)
       console.log('Reservation created successfully!');
-
+      
       // Clear form inputs after successful submission
       setDate('');
       setCity('');
