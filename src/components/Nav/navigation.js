@@ -19,7 +19,7 @@ const Navigation = ({ children }) => {
   const handleNavActive = () => {
     setNavActive(!navActive);
   };
-  const { user, setUser } = useUser();
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -57,18 +57,6 @@ const Navigation = ({ children }) => {
             <nav className="side-nav">
               <div className="nav-logo">
                 <h2>BookItNow</h2>
-              </div>
-              <div>
-                {user ? (
-                  <div>
-                    <p>
-                      Welcome,
-                      {user.status.data.name}
-                    </p>
-                  </div>
-                ) : (
-                  <p>User not logged in.</p>
-                )}
               </div>
               <ul>
                 {
