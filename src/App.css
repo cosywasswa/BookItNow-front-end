@@ -38,11 +38,6 @@
   }
 }
 
-/* .doctor-image{
-  margin-top: 1%;
-   height: 400px;
-   width:400px;
-  } */
 .image-doctor {
   object-fit: cover;
   object-position: top center;
