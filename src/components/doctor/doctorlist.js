@@ -20,11 +20,11 @@ const DoctorsList = () => {
     return <Loader isLoading={isLoading} />;
   }
   return (
-    <div className="w-[90%] overflow-x-hidden swiper-container flex justify-center">
+    <div className="w-[90%] overflow-x-hidden swiper-container flex ">
       <Swiper
         modules={[Navigation]}
         spaceBetween={16}
-        slidesPerView="auto"
+        slidesPerView={1}
         breakpoints={{
           768: {
             slidesPerView: 2,
@@ -36,7 +36,7 @@ const DoctorsList = () => {
             slidesPerView: 3,
           },
         }}
-        className="mySwiper"
+        className="mySwiper w-[90%]"
       >
         {doctors.map((doctor) => (
           <SwiperSlide key={doctor.id} className="px-1">
