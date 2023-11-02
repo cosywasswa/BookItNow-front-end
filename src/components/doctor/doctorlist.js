@@ -22,7 +22,7 @@ const DoctorsList = () => {
   return (
 
     <div className="w-[90%] overflow-x-hidden swiper-container flex ">
-      {doctors.length === 0 ? (<h1 className="mx-auto text-xl mt-20 text-slate-500">No Doctor Available!!</h1>)
+      {doctors.length === 0 ? (<h1 className="mx-auto text-xl mt-5 text-slate-500">No Doctor Available!!</h1>)
         : (
           <Swiper
             modules={[Navigation]}
