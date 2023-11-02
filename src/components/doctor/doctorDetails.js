@@ -43,7 +43,7 @@ const DoctorDetails = () => {
             type="button"
             aria-label="Reserve Appointment"
             className="border-2  bg-lime-500
- text-white border-lime-500 flex items-center gap-2 p-3 rounded-full self-center lg:hover:bg-white  lg:hover:text-lime-500"
+            text-white border-lime-500 flex items-center gap-2 p-3 rounded-full self-center lg:hover:bg-white  lg:hover:text-lime-500"
           >
             <FaCalendarDay />
             <span>
@@ -53,7 +53,7 @@ const DoctorDetails = () => {
             <span className="font-light border border-white rounded-full p-1 ml-1"><FaChevronRight /></span>
           </button>
         </div>
-        <button type="button" className="absolute sm:top-0 left-0 p-4 lg:top-full md:top-full rounded-e-full bg-lime-500" onClick={() => navigate('/doctors')}>
+        <button type="button" aria-label="button" className="absolute sm:top-0 left-0 p-4 lg:top-full md:top-full rounded-e-full bg-lime-500" onClick={() => navigate('/doctors')}>
           <BiLeftArrow
             className="ml-2 text-white"
           />
