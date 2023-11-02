@@ -10,6 +10,8 @@ import {
   FaCopyright,
   FaBars,
   FaTimes,
+  FaSignOutAlt,
+  FaHospitalUser,
 } from 'react-icons/fa';
 import './nav.css';
 import { useUser } from '../userAccess/userContext';
@@ -19,7 +21,7 @@ const Navigation = ({ children }) => {
   const handleNavActive = () => {
     setNavActive(!navActive);
   };
-  const { user, setUser } = useUser();
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -56,19 +58,8 @@ const Navigation = ({ children }) => {
           <div className="nav-head">
             <nav className="side-nav">
               <div className="nav-logo">
+                <FaHospitalUser className="hospital" />
                 <h2>BookItNow</h2>
-              </div>
-              <div>
-                {user ? (
-                  <div>
-                    <p>
-                      Welcome,
-                      {user.status.data.name}
-                    </p>
-                  </div>
-                ) : (
-                  <p>User not logged in.</p>
-                )}
               </div>
               <ul>
                 {
@@ -91,7 +82,10 @@ const Navigation = ({ children }) => {
                 <span>Copyright 2023</span>
               </div>
               <div className="logout">
-                <button className="logout-btn" type="button" onClick={handleLogout}>Log-out</button>
+                <button className="logout-btn" type="button" onClick={handleLogout}>
+                  <FaSignOutAlt className="sign-out-icon" />
+                  Log-out
+                </button>
               </div>
             </nav>
           </div>
@@ -99,7 +93,12 @@ const Navigation = ({ children }) => {
             <nav className="mob-nav">
               <div className="mob-header">
                 <FaBars onClick={handleNavActive} />
-                <h1>BookItNow</h1>
+                <div className="logo-right">
+                  <h1 className="right-logo">
+                    <FaHospitalUser className="hospital" />
+                    BookItNow
+                  </h1>
+                </div>
               </div>
               <div className={`mob-container ${navActive ? 'active' : ''}`}>
                 <ul className="mob-nav-list">
@@ -125,7 +124,10 @@ const Navigation = ({ children }) => {
                   <span>Copyright 2023</span>
                 </div>
                 <div className="logout-div">
-                  <button className="logout-btn" type="button" onClick={handleLogout}>Log-out</button>
+                  <button className="logout-btn" type="button" onClick={handleLogout}>
+                    <FaSignOutAlt className="sign-out-icon" />
+                    Log-out
+                  </button>
                 </div>
               </div>
             </nav>
