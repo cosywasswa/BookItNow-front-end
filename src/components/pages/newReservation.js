@@ -8,7 +8,7 @@ const NewReservation = () => {
   const { user } = useUser();
   const userId = user?.status?.data?.id; // Safely access the user ID
 
-  // Local state variables for form inputs, loading state, and error handling
+  // Local state variables for form inputs, loading state, and error handling okay
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
   const [doctorId, setDoctorId] = useState('');
