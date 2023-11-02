@@ -19,8 +19,7 @@
       "react/react-in-jsx-scope": "off",
       "jsx-a11y/label-has-associated-control": "off",
       "import/no-unresolved": "off",
-      "no-shadow": "off",
-      "linebreak-style": ["error", "unix"]
+      "no-shadow": "off"
     },
     "overrides": [
       {

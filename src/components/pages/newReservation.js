@@ -35,8 +35,8 @@ const NewReservation = () => {
       }
 
       const reservationData = {
-        userId,
-        doctorId,
+        user_id: userId,
+        doctor_id: doctorId,
         city,
         date,
       };
