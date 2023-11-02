@@ -19,7 +19,7 @@ const DeleteDoc = () => {
   return (
 
     <>
-      {doctors.length === 0 ? (<h1 className="text-xl mt-20 text-slate-"> No doctors Added!!</h1>)
+      {doctors.length === 0 ? (<h1 className="text-xl mt-20 text-slate-500"> No doctors Added!!</h1>)
         : (doctors.map((doctor) => (
           <div key={doctor.id} className="flex w-96 h-30 md:w-3/6 lg:w-2/4 lg:gap-5 border-2 rounded-md gap-2 hover:shadow-lg">
             <img src={doctor.image} alt={doctor.name} className=" w-40  lg:w-52 h-auto image-doctor" />
