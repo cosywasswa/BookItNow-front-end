@@ -56,7 +56,6 @@ const NewReservation = () => {
       console.error('Error creating reservation:', error.message);
       setError('Error creating reservation. Please try again later.');
     } finally {
-      // Reset loading state regardless of success or failure
       setIsLoading(false);
     }
   };
