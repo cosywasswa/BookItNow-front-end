@@ -52,7 +52,7 @@ const DoctorDetails = () => {
             <span className="font-light border border-white rounded-full p-1 ml-1"><FaChevronRight /></span>
           </button>
         </div>
-        <button type="button" className="absolute sm:top-0 left-0 p-4 lg:top-full md:top-full  rounded-e-full bg-lime-500" onClick={() => navigate('/doctors')}>
+        <button type="button" aria-label="button" className="absolute sm:top-0 left-0 p-4 lg:top-full md:top-full  rounded-e-full bg-lime-500" onClick={() => navigate('/doctors')}>
           <BiLeftArrow
             className="ml-2 text-white"
           />

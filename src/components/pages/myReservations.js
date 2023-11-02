@@ -10,7 +10,7 @@ const MyReservations = () => {
   if (user) {
     userId = user.status.data.id;
   }
-  // get uer from localtorage here
+
   // Get reservations data from Redux store
   const { reservations } = useSelector((store) => store.reservationsList);
 
