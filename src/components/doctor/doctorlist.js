@@ -20,39 +20,44 @@ const DoctorsList = () => {
     return <Loader isLoading={isLoading} />;
   }
   return (
+
     <div className="w-[90%] overflow-x-hidden swiper-container flex ">
-      <Swiper
-        modules={[Navigation]}
-        spaceBetween={16}
-        slidesPerView={1}
-        breakpoints={{
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 2,
-          },
-          1375: {
-            slidesPerView: 3,
-          },
-        }}
-        className="mySwiper w-[90%]"
-      >
-        {doctors.map((doctor) => (
-          <SwiperSlide key={doctor.id} className="px-1">
-            <Link to={`/${doctor.id}`} className="flex flex-col items-center p-2 gap-1 w-4/5 mx-auto hover:border hover:shadow-lg my-1">
-              <DoctorCard
-                name={doctor.name}
-                image={doctor.image}
-                specialization={doctor.specialization}
-                className="hover:text-white"
-              />
-            </Link>
-          </SwiperSlide>
-        ))}
-        <SwiperNavButtons />
-      </Swiper>
+      {doctors.length === 0 ? (<h1 className="mx-auto text-xl mt-20 text-slate-500">No Doctor Available!!</h1>)
+        : (
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={16}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 2,
+              },
+              1375: {
+                slidesPerView: 3,
+              },
+            }}
+            className="mySwiper w-[90%]"
+          >
+            {doctors.map((doctor) => (
+              <SwiperSlide key={doctor.id} className="px-1">
+                <Link to={`/${doctor.id}`} className="flex flex-col items-center p-2 gap-1 w-4/5 mx-auto hover:border hover:shadow-lg my-1">
+                  <DoctorCard
+                    name={doctor.name}
+                    image={doctor.image}
+                    specialization={doctor.specialization}
+                    className="hover:text-white"
+                  />
+                </Link>
+              </SwiperSlide>
+            ))}
+            <SwiperNavButtons />
+          </Swiper>
+        )}
     </div>
+
   );
 };
 
