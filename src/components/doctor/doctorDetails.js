@@ -10,6 +10,7 @@ const DoctorDetails = () => {
   const dispatch = useDispatch();
   const { doctorDetails } = useParams();
   const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchDoctor(doctorDetails));
   }, [dispatch, doctorDetails]);
@@ -43,6 +44,7 @@ const DoctorDetails = () => {
             type="button"
             className="border-2  bg-lime-500
  text-white border-lime-500 flex items-center gap-2 p-3 rounded-full self-center lg:hover:bg-white  lg:hover:text-lime-500"
+            onClick={() => navigate('/New-reservation', { state: doctorInfo })}
           >
             <FaCalendarDay />
             <span>

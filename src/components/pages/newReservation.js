@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { createReservation } from '../../redux/reservation/thunk';
 import { useUser } from '../userAccess/userContext';
+import { fetchDoctors } from '../../redux/doctor/thunk';
 
 const NewReservation = () => {
   const dispatch = useDispatch();
+  const { doctors } = useSelector((store) => store.doctor);
+  const location = useLocation();
+  const selectedDoctor = location.state;
   const { user } = useUser();
   const userId = user?.status?.data?.id; // Safely access the user ID
 
   // Local state variables for form inputs, loading state, and error handling okay
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
-  const [doctorId, setDoctorId] = useState('');
+  const [doctorId, setDoctorId] = useState(selectedDoctor ? selectedDoctor.id : '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -59,6 +64,9 @@ const NewReservation = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    dispatch(fetchDoctors());
+  }, [dispatch]);
 
   return (
     <div className="container mx-auto mt-8">
@@ -88,14 +96,20 @@ const NewReservation = () => {
         </div>
         {/* Doctor ID input */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Doctor ID</label>
-          <input
-            type="text"
-            value={doctorId}
+          <label className="block text-sm font-medium text-gray-600">Choose Doctor</label>
+          <select
             onChange={(e) => setDoctorId(e.target.value)}
-            className="mt-1 p-2 border rounded-md w-full"
+            name="doctorId"
+            defaultValue={selectedDoctor && selectedDoctor.id}
             required
-          />
+            className="mt-1 p-2 border rounded-md w-full bg-white"
+          >
+            <option>Select a Doctor</option>
+            {doctors.map((doctor) => (
+              <option key={doctor.id} value={doctor.id}>{doctor.name}</option>
+            ))}
+
+          </select>
         </div>
         {/* Error message */}
         {error && <p className="text-red-500 mb-4">{error}</p>}
