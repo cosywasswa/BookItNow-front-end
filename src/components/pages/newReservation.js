@@ -12,14 +12,13 @@ const NewReservation = () => {
   const selectedDoctor = location.state;
   const { user } = useUser();
   const userId = user?.status?.data?.id;
-  
 
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
   const [doctorId, setDoctorId] = useState(selectedDoctor ? selectedDoctor.id : '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -40,7 +39,6 @@ const NewReservation = () => {
       setDoctorId('');
       setCity('');
       setDate('');
-      navigate('/My-reservation');
     } catch (error) {
       console.error('Error creating reservation:', error.message);
       setError('Error creating reservation. Please try again later.');
