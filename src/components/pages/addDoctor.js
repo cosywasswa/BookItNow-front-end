@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import './doc.css';
 import { createDoctor } from '../../redux/doctor/thunk';
 
@@ -21,6 +22,9 @@ const AddDoctor = () => {
         image,
         fee,
       }));
+      toast.success('Doctor added successfuly');
+    } else {
+      toast.error('Please fill all fields');
     }
     setName('');
     setSpecialization('');
