@@ -55,7 +55,7 @@ const NewReservation = () => {
     <div
       className="flex flex-col items-center justify-center min-h-screen"
       style={{
-        backgroundImage: 'url(\'https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\')',
+        backgroundImage: 'url(\'https://images.pexels.com/photos/6749778/pexels-photo-6749778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\')',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
