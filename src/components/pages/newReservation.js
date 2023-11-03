@@ -11,30 +11,19 @@ const NewReservation = () => {
   const location = useLocation();
   const selectedDoctor = location.state;
   const { user } = useUser();
-  const userId = user?.status?.data?.id; // Safely access the user ID
+  const userId = user?.status?.data?.id;
 
-  // Local state variables for form inputs, loading state, and error handling okay
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
   const [doctorId, setDoctorId] = useState(selectedDoctor ? selectedDoctor.id : '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Log the reservation data before dispatching the action
-    console.log('Reservation Data:', {
-      userId,
-      doctorId,
-      city,
-      date,
-    });
-
     try {
-      // Check if user ID is available
       if (!userId) {
         throw new Error('User ID is not available. Please login and try again.');
       }
@@ -46,85 +35,112 @@ const NewReservation = () => {
         date,
       };
 
-      // Dispatch asynchronous action using Redux Thunk to create reservation
       await dispatch(createReservation({ data: reservationData }));
-
-      // Log success and handle further actions (e.g., redirect user)
-      console.log('Reservation created successfully!');
-
-      // Clear form inputs after successful submission
       setDoctorId('');
       setCity('');
       setDate('');
     } catch (error) {
-      // Handle errors (e.g., show error message to the user)
       console.error('Error creating reservation:', error.message);
       setError('Error creating reservation. Please try again later.');
     } finally {
       setIsLoading(false);
     }
   };
+
   useEffect(() => {
     dispatch(fetchDoctors());
   }, [dispatch]);
 
   return (
-    <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">New Reservation</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Date input */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Date</label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            className="mt-1 p-2 border rounded-md w-full"
-            required
-          />
-        </div>
-        {/* City input */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">City</label>
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="mt-1 p-2 border rounded-md w-full"
-            required
-          />
-        </div>
-        {/* Doctor ID input */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Choose Doctor</label>
-          <select
-            onChange={(e) => setDoctorId(e.target.value)}
-            name="doctorId"
-            defaultValue={selectedDoctor && selectedDoctor.id}
-            required
-            className="mt-1 p-2 border rounded-md w-full bg-white"
-          >
-            <option>Select a Doctor</option>
-            {doctors.map((doctor) => (
-              <option key={doctor.id} value={doctor.id}>{doctor.name}</option>
-            ))}
+    <div
+      className="flex flex-col items-center justify-center min-h-screen"
+      style={{
+        backgroundImage: 'url(\'https://images.pexels.com/photos/6749778/pexels-photo-6749778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\')',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="container mx-auto max-w-screen-md p-8 border rounded shadow-lg bg-white">
+        <h2 className="text-2xl font-bold mb-4">New Reservation</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 w-full">
+          {/* Date Input */}
+          <div className="flex flex-col w-full md:w-1/2">
+            <label htmlFor="date" className="text-sm font-medium text-gray-600">
+              Date
+            </label>
+            <input
+              id="date"
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="p-2 border rounded"
+              required
+            />
+          </div>
 
-          </select>
-        </div>
-        {/* Error message */}
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        {/* Submit button */}
-        <button
-          type="submit"
-          className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ${
-            isLoading ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
-          disabled={isLoading}
-        >
-          {isLoading ? 'Reserving...' : 'Reserve'}
-        </button>
-      </form>
+          {/* City Input */}
+          <div className="flex flex-col w-full md:w-1/2">
+            <label htmlFor="city" className="text-sm font-medium text-gray-600">
+              City
+            </label>
+            <input
+              id="city"
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="p-2 border rounded"
+              required
+            />
+          </div>
+
+          {/* Doctor Selection */}
+          <div className="flex flex-col w-full md:w-1/2">
+            <label htmlFor="doctor" className="text-sm font-medium text-gray-600">
+              Choose Doctor
+            </label>
+            <select
+              id="doctor"
+              onChange={(e) => setDoctorId(e.target.value)}
+              value={doctorId}
+              className="p-2 border rounded bg-white"
+              required
+            >
+              <option value="">Select a Doctor</option>
+              {doctors.map((doctor) => (
+                <option key={doctor.id} value={doctor.id}>
+                  {doctor.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Error Message */}
+          {error && <p className="text-red-500">{error}</p>}
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ${
+              isLoading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={isLoading}
+          >
+            {isLoading ? 'Reserving...' : 'Reserve'}
+          </button>
+        </form>
+      </div>
+      {/* Scheduling Information */}
+      <div className="container mx-auto max-w-screen-md p-8 border rounded mt-4 shadow-lg bg-white">
+
+        <h2 className="text-2xl font-bold mt-8 mb-4">Schedule Information</h2>
+        <p className="text-gray-700">
+          Our doctors are available from Monday to Friday,
+          9:00 AM to 5:00 PM. If you have any questions or need assistance,
+          feel free to contact our support team at support@example.com.
+        </p>
+      </div>
     </div>
+
   );
 };
 
