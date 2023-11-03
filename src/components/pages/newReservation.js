@@ -36,7 +36,6 @@ const NewReservation = () => {
       };
 
       await dispatch(createReservation({ data: reservationData }));
-      console.log('Reservation created successfully!');
       setDoctorId('');
       setCity('');
       setDate('');
@@ -53,49 +52,59 @@ const NewReservation = () => {
   }, [dispatch]);
 
   return (
-    <div className="container mx-auto mt-8 p-8 border rounded shadow-lg flex flex-col items-center">
+    <div className="container mx-auto mt-8 p-8 border rounded shadow-lg">
       <h2 className="text-2xl font-bold mb-4">New Reservation</h2>
-      <form onSubmit={handleSubmit} className="flex items-center space-x-4">
-        <label htmlFor="date" className="text-sm font-medium text-gray-600">
-          Date
-        </label>
-        <input
-          id="date"
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="p-2 border rounded"
-          required
-        />
-        <label htmlFor="city" className="text-sm font-medium text-gray-600">
-          City
-        </label>
-        <input
-          id="city"
-          type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          className="p-2 border rounded"
-          required
-        />
-        <label htmlFor="doctor" className="text-sm font-medium text-gray-600">
-          Choose Doctor
-        </label>
-        <select
-          id="doctor"
-          onChange={(e) => setDoctorId(e.target.value)}
-          value={doctorId}
-          className="p-2 border rounded bg-white"
-          required
-        >
-          <option value="">Select a Doctor</option>
-          {doctors.map((doctor) => (
-            <option key={doctor.id} value={doctor.id}>
-              {doctor.name}
-            </option>
-          ))}
-        </select>
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+        <div className="flex flex-col w-full md:w-1/2">
+          <label htmlFor="date" className="text-sm font-medium text-gray-600">
+            Date
+          </label>
+          <input
+            id="date"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="p-2 border rounded"
+            required
+          />
+        </div>
+
+        <div className="flex flex-col w-full md:w-1/2">
+          <label htmlFor="city" className="text-sm font-medium text-gray-600">
+            City
+          </label>
+          <input
+            id="city"
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="p-2 border rounded"
+            required
+          />
+        </div>
+
+        <div className="flex flex-col w-full md:w-1/2">
+          <label htmlFor="doctor" className="text-sm font-medium text-gray-600">
+            Choose Doctor
+          </label>
+          <select
+            id="doctor"
+            onChange={(e) => setDoctorId(e.target.value)}
+            value={doctorId}
+            className="p-2 border rounded bg-white"
+            required
+          >
+            <option value="">Select a Doctor</option>
+            {doctors.map((doctor) => (
+              <option key={doctor.id} value={doctor.id}>
+                {doctor.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
         {error && <p className="text-red-500">{error}</p>}
+
         <button
           type="submit"
           className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ${
@@ -106,6 +115,18 @@ const NewReservation = () => {
           {isLoading ? 'Reserving...' : 'Reserve'}
         </button>
       </form>
+
+      <div className="bg-gray-100 text-center p-8 mt-4">
+        <h2 className="text-2xl font-bold mb-4">Doctor&apos;s Work Hours and Booking Information</h2>
+        <p className="text-gray-700">
+          Our doctors are available from Monday to Friday,
+          9:00 AM to 5:00 PM. To book an appointment,
+          please fill out the form above with the required details
+          and click the &quot;Reserve&quot; button.
+          If you have any questions,
+          feel free to contact our support team at support@example.com.
+        </p>
+      </div>
     </div>
   );
 };
