@@ -40,12 +40,12 @@ const Login = ({ onFormSwitch }) => {
       <form onSubmit={handleSubmit} className="my-form">
         <div className="input-div">
           <label htmlFor="name" className="name-label">Name</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="name-input" id="name" placeholder="Fullname" />
+          <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="name-input" id="name" placeholder="Enter name" />
+          <button type="submit" className="access-btn">
+            {' '}
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
         </div>
-        <button type="submit" className="access-btn">
-          {' '}
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
       </form>
       <button onClick={() => onFormSwitch('Signup')} type="submit" className="signup-login">No account? Sign_up here</button>
       {error && <div className="error-message">{error}</div>}
