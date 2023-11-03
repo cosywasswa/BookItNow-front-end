@@ -70,6 +70,7 @@ const Navigation = ({ children }) => {
         ))
        }
               </ul>
+              <hr className="nav-hr" />
               <div className="nav_socials">
                 <FaFacebookF />
                 <FaGithub />
