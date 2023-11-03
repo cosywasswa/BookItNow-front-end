@@ -24,7 +24,7 @@ const AddDoctor = () => {
       }));
       toast.success('Doctor added successfuly');
     } else {
-      toast.error('Please fill all fields');
+      toast.error('Please fill all fields before you submit');
     }
     setName('');
     setSpecialization('');

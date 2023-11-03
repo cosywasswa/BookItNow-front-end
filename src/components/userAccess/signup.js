@@ -15,7 +15,6 @@ const Signup = ({ onFormSwitch }) => {
         setName('');
       }
     } catch (error) {
-      toast.error('Sign-up failed');
       setName('');
     }
   };
