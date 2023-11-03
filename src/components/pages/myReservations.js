@@ -20,11 +20,9 @@ const MyReservations = () => {
     dispatch(fetchReservations(userId));
   }, [dispatch, userId]);
 
-  console.log('Reservations data:', reservations); // Log the fetched reservations data
-
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">My Reservations</h2>
+      <h2 className="text-2xl font-bold mb-4 my-reserve-head">My Reservations</h2>
       <table className="w-full border-collapse">
         <thead>
           <tr className="bg-gray-200">
