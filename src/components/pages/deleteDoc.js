@@ -28,7 +28,7 @@ const DeleteDoc = () => {
                 <p className="lg:text-lg font-bold ">{doctor.name}</p>
                 <p style={{ color: '#c0c2c1' }} className="text-base">{doctor.specialization}</p>
               </div>
-              <button type="button" className="self-end mb-3 place-self-center justify-self-start border border-red-600 bg-red-600 text-white hover:text-black transition ease-in-out delay-150 bg-red-600  hover:bg-white duration-300  flex items-center p-2 gap-2 rounded-md" onClick={() => { handleDelete(doctor.id); }}>
+              <button type="button" className="self-end mb-3 place-self-center justify-self-start border border-red-600 bg-red-600 text-white hover:text-red-500 transition ease-in-out delay-150 bg-red-600  hover:bg-white duration-300  flex items-center p-2 gap-2 rounded-md" onClick={() => { handleDelete(doctor.id); }}>
                 <FaTrashCan />
                 Delete
               </button>
