@@ -223,33 +223,33 @@
 @media only screen and (min-width: 790px) and (max-width: 900px) {
   .all-container header {
     height: 100vh;
-    width: 30%;
+    width: 21%;
   }
 
   .main-container {
-    width: 79%;
+    width: 76.5%;
   }
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1000px) {
   .all-container header {
     height: 100vh;
-    width: 19%;
+    width: 22%;
   }
 
   .main-container {
-    width: 80%;
+    width: 82%;
   }
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1060px) {
   .all-container header {
     height: 100vh;
-    width: 17.4%;
+    width: 19%;
   }
 
   .main-container {
-    width: 80%;
+    width: 83%;
   }
 }
 
@@ -260,7 +260,7 @@
   }
 
   .main-container {
-    width: 80%;
+    width: 83%;
   }
 }
 
@@ -271,7 +271,7 @@
   }
 
   .main-container {
-    width: 80%;
+    width: 84%;
   }
 }
 
@@ -282,6 +282,6 @@
   }
 
   .main-container {
-    width: 80%;
+    width: 87%;
   }
 }
