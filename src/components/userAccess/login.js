@@ -21,7 +21,7 @@ const Login = ({ onFormSwitch }) => {
     setLoading(true);
     try {
       if (name) {
-        const response = await axios.post('http://[::1]:4000/login', { name });
+        const response = await axios.post('https://bookitnow-kk0q.onrender.com/login', { name });
         if (response.status === 200) {
           handleLoginSuccess(response.data);
         }

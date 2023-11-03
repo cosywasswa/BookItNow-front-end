@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
-const url = 'http://127.0.0.1:4000/api/v1'; // Replace with your API endpoint
+const url = 'https://bookitnow-kk0q.onrender.com/api/v1'; // Replace with your API endpoint
 
 export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async (userId, thunkAPI) => {
   try {

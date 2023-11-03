@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'http://127.0.0.1:4000/api/v1';
-const urlDoc = 'http://[::1]:4000/api/v1/doctors';
+const url = 'https://bookitnow-kk0q.onrender.com/api/v1';
+const urlDoc = 'https://bookitnow-kk0q.onrender.com/api/v1/doctors';
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async (thunkAPI) => {
   try {

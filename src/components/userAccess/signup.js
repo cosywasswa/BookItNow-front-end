@@ -10,7 +10,7 @@ const Signup = ({ onFormSwitch }) => {
     e.preventDefault();
     try {
       if (name) {
-        const response = await axios.post('http://[::1]:4000/sign_up', { name });
+        const response = await axios.post('https://bookitnow-kk0q.onrender.com/sign_up', { name });
         toast.success('signed up'`${response.status.data.name} signed up`);
         setName('');
       }
