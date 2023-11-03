@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Signup = ({ onFormSwitch }) => {
   const [name, setName] = useState('');
@@ -8,11 +9,14 @@ const Signup = ({ onFormSwitch }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://[::1]:4000/sign_up', { name });
-      console.log('Signup successful:', response.data);
-      setName('');
+      if (name) {
+        const response = await axios.post('http://[::1]:4000/sign_up', { name });
+        toast.success('signed up'`${response.status.data.name} signed up`);
+        setName('');
+      }
     } catch (error) {
-      console.error('Signup failed:', error);
+      toast.error('Sign-up failed');
+      setName('');
     }
   };
 

@@ -14,12 +14,11 @@ const Login = ({ onFormSwitch }) => {
 
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
     try {
       if (name) {
         const response = await axios.post('http://[::1]:4000/login', { name });
@@ -30,9 +29,10 @@ const Login = ({ onFormSwitch }) => {
         toast.success('You logged in successfuly');
       }
     } catch (error) {
-      setError('Login failed. Please try again.');
+      toast.error('Login failed', error);
     } finally {
       setLoading(false);
+      setName('');
     }
   };
   return (
