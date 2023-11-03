@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigation } from 'react-router';
+import { useLocation } from 'react-router';
 import { createReservation } from '../../redux/reservation/thunk';
 import { useUser } from '../userAccess/userContext';
 import { fetchDoctors } from '../../redux/doctor/thunk';
@@ -12,14 +12,14 @@ const NewReservation = () => {
   const selectedDoctor = location.state;
   const { user } = useUser();
   const userId = user?.status?.data?.id;
-  const navigate = useNavigation();
+  
 
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
   const [doctorId, setDoctorId] = useState(selectedDoctor ? selectedDoctor.id : '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
