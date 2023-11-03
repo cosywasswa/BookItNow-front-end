@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import { createReservation } from '../../redux/reservation/thunk';
 import { useUser } from '../userAccess/userContext';
 import { fetchDoctors } from '../../redux/doctor/thunk';
@@ -7,12 +8,14 @@ import { fetchDoctors } from '../../redux/doctor/thunk';
 const NewReservation = () => {
   const dispatch = useDispatch();
   const { doctors } = useSelector((store) => store.doctor);
+  const location = useLocation();
+  const selectedDoctor = location.state;
   const { user } = useUser();
   const userId = user?.status?.data?.id;
 
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
-  const [doctorId, setDoctorId] = useState('');
+  const [doctorId, setDoctorId] = useState(selectedDoctor ? selectedDoctor.id : '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -49,13 +52,17 @@ const NewReservation = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="container mx-auto max-w-screen-md p-6 border rounded shadow-lg">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen"
+      style={{
+        backgroundImage: 'url(\'https://images.pexels.com/photos/5327647/pexels-photo-5327647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\')',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="container mx-auto max-w-screen-md p-8 border rounded shadow-lg bg-white">
         <h2 className="text-2xl font-bold mb-4">New Reservation</h2>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 w-full"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 w-full">
           {/* Date Input */}
           <div className="flex flex-col w-full md:w-1/2">
             <label htmlFor="date" className="text-sm font-medium text-gray-600">
@@ -122,20 +129,18 @@ const NewReservation = () => {
           </button>
         </form>
       </div>
+      {/* Scheduling Information */}
+      <div className="container mx-auto max-w-screen-md p-8 border rounded mt-4 shadow-lg bg-white">
 
-      {/* Additional Content */}
-      <div className="bg-gray-100 mx-auto max-w-screen-md  text-center p-8 mt-4">
-        <h2 className="text-2xl font-bold mb-4">Doctor&apos;s Work Hours and Booking Information</h2>
+        <h2 className="text-2xl font-bold mt-8 mb-4">Schedule Information</h2>
         <p className="text-gray-700">
           Our doctors are available from Monday to Friday,
-          9:00 AM to 5:00 PM. To book an appointment,
-          please fill out the form above with the required details
-          and click the &quot;Reserve&quot; button.
-          If you have any questions,
+          9:00 AM to 5:00 PM. If you have any questions or need assistance,
           feel free to contact our support team at support@example.com.
         </p>
       </div>
     </div>
+
   );
 };
 
