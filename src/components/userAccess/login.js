@@ -6,10 +6,6 @@ import { toast } from 'react-toastify';
 
 const Login = ({ onFormSwitch }) => {
   const navigate = useNavigate();
-  // const { user } = useUser();
-  // if (user) {
-  //   navigate('/doctors');
-  // }
   const handleLoginSuccess = (userData) => {
     localStorage.setItem('user', JSON.stringify(userData));
     window.location.href = '/doctors';
