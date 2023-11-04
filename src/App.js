@@ -12,7 +12,7 @@ import DoctorDetails from './components/doctor/doctorDetails';
 import Layout from './components/Nav/layout';
 import { useUser } from './components/userAccess/userContext';
 
-function App() {
+const App = () => {
   const { setUser } = useUser();
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -41,6 +41,6 @@ function App() {
       </Router>
     </>
   );
-}
+};
 
 export default App;

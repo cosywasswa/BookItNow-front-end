@@ -45,7 +45,6 @@ const doctorSlice = createSlice({
         state.error = true;
         state.errMsg = action.payload;
       })
-    // create doctor
       .addCase(createDoctor.pending, (state) => {
         state.isLoading = true;
       })
