@@ -16,7 +16,6 @@
   - [Key Features ](#key-features-)
   - [🚀 Live Demo](#live-demo)
   - [Kanban Board](#kanban)
-  - [Video Presentation](#video-presentation)
 - [💻 Getting Started ](#-getting-started-)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -28,13 +27,9 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-<!-- PROJECT DESCRIPTION -->
-
 # BookItNow <a name="about-project"></a>
 
-The BookItnow - Online Doctor Reservation System is a web application designed to provide users with the ability to reserve, view, and manage doctors and doctor appointment reservation . The system aims to streamline the process of finding and booking doctors from various locations, making it convenient for both users and motor providers.
-
-<!-- ER diagram"-->
+The BookItnow - is an Online Doctor Reservation web application designed to provide users with the ability to reserve, view, and manage doctors and doctor appointment reservation . The system aims to streamline the process of finding and booking doctors from various locations, making it convenient for both users and motor providers.
 
 #### Link to [Backend](https://github.com/binodbhusal/final_capstone_backend)
 
@@ -51,12 +46,10 @@ The BookItnow - Online Doctor Reservation System is a web application designed t
   </ul>
 </details>
 
-<!-- Features -->
-
 ### Key Features <a name="key-features"></a>
 
-1-User Authentication: The system allows users to create accounts and log in
-2-Doctor reservation: hospitals can list their available doctors. Each listing includes details such as the  reservation id, doctors name, and location.
+1-User Access: The system allows users to create accounts and log in
+2-Doctor reservation: hospitals can list their available doctors. Each listing includes details such as doctors name, date, and location.
 3-Reservation Management: Users can view available doctors  at different locations and make reservations
 4-Add and delete doctors in including location
 
@@ -64,10 +57,7 @@ The BookItnow - Online Doctor Reservation System is a web application designed t
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Here's the link to my deployed project:
-> Click on this [Coming Soon](#) to view the live-demo of project
-
-- []()
+- This is 'BookItNow-React app'<a href="https://deploy-preview-17--vermillion-haupia-7c6249.netlify.app/">Live Demo Link</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -78,14 +68,6 @@ Link to the [Kanban Board](https://github.com/cosywasswa/BookItNow-back-end/proj
 All 3 Authors have been contributing to this project from start to finish
 
 You can find the initial snapshot and setup of the Kanban board [here](https://github.com/cosywasswa/BookItNow-back-end/issues).
-
-## Video Presentation <a name="video-presentation"></a>
-
-Click on this [Coming Soon](#) to view the video walkthrough of this project
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -122,17 +104,9 @@ npm install
 npm start
 ```
 
-### Run Tests
-
-npm test
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
-
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+Collaborators.
 
 👤 **Munana**
 
@@ -163,27 +137,21 @@ Feel free to check the [issues page](https://github.com/cosywasswa/BookItNow-fro
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
-
 ## ⭐️ Show your support <a name="support"></a>
 
 If you liked this project, give it a ⭐️ and kindly send to me an e-mail expressing it, it would make our day and fuel our motivation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
-
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Hats off to Murat Korkmaz for designing the awesome template that was used. ✨
+Hats off to Murat Korkmaz for designing the awesome template that inspired us to create this project. ✨
 Microverse for giving us this chance
 The amazing code reviewers for making us improve every day 👍
 
 Original design idea by [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
