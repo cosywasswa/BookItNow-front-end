@@ -57,7 +57,7 @@ The BookItnow - is an Online Doctor Reservation web application designed to prov
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- This is 'BookItNow-React app'<a href="https://deploy-preview-17--vermillion-haupia-7c6249.netlify.app/">Live Demo Link</a>
+- This is 'BookItNow-React app'<a href="https://bookitnow-app.onrender.com/">Live Demo Link</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
