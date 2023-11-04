@@ -6,10 +6,6 @@ import { toast } from 'react-toastify';
 
 const Login = ({ onFormSwitch }) => {
   const navigate = useNavigate();
-  // const { user } = useUser();
-  // if (user) {
-  //   navigate('/doctors');
-  // }
   const handleLoginSuccess = (userData) => {
     localStorage.setItem('user', JSON.stringify(userData));
     window.location.href = '/doctors';
@@ -18,23 +14,25 @@ const Login = ({ onFormSwitch }) => {
 
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
     try {
-      const response = await axios.post('http://[::1]:4000/login', { name });
-      if (response.status === 200) {
-        handleLoginSuccess(response.data);
+      if (name) {
+        const response = await axios.post('https://bookitnow-kk0q.onrender.com/login', { name });
+        if (response.status === 200) {
+          handleLoginSuccess(response.data);
+        }
+        setName('');
+        toast.success('You logged in successfuly');
       }
-      setName('');
-      toast.success('You logged in successfuly');
     } catch (error) {
-      setError('Login failed. Please try again.');
+      toast.error('Login failed', error);
     } finally {
       setLoading(false);
+      setName('');
     }
   };
   return (
@@ -42,12 +40,12 @@ const Login = ({ onFormSwitch }) => {
       <form onSubmit={handleSubmit} className="my-form">
         <div className="input-div">
           <label htmlFor="name" className="name-label">Name</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="name-input" id="name" placeholder="Fullname" />
+          <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="name-input" id="name" placeholder="Enter name" />
+          <button type="submit" className="access-btn">
+            {' '}
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
         </div>
-        <button type="submit" className="access-btn">
-          {' '}
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
       </form>
       <button onClick={() => onFormSwitch('Signup')} type="submit" className="signup-login">No account? Sign_up here</button>
       {error && <div className="error-message">{error}</div>}

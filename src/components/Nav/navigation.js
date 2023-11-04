@@ -64,12 +64,13 @@ const Navigation = ({ children }) => {
               <ul>
                 {
         menuItem.map((item) => (
-          <NavLink to={item.path} key={item.path} className="link" activeclassname="active">
+          <NavLink to={item.path} key={item.path} className="links" activeclassname="text-blue-500 active">
             <div className="link-text">{item.name}</div>
           </NavLink>
         ))
        }
               </ul>
+              <hr className="nav-hr" />
               <div className="nav_socials">
                 <FaFacebookF />
                 <FaGithub />
