@@ -7,6 +7,7 @@ const MyReservations = () => {
   const dispatch = useDispatch();
   const { user } = useUser();
   let userId = null;
+
   if (user) {
     userId = user.status.data.id;
   }
@@ -16,7 +17,6 @@ const MyReservations = () => {
 
   // Fetch reservations when the component mounts
   useEffect(() => {
-    console.log('Fetching reservations...'); // Log a message indicating fetching has started
     dispatch(fetchReservations(userId));
   }, [dispatch, userId]);
 
@@ -34,19 +34,15 @@ const MyReservations = () => {
           </tr>
         </thead>
         <tbody>
-          {reservations.map((reservation) => {
-            console.log('Reservation ID:', reservation.id); // Log each reservation's ID
-            console.log('User ID:', reservation.user_id); // Log each reservation's user ID
-            return (
-              <tr key={reservation.id} className="bg-white hover:bg-gray-100">
-                <td className="py-2 px-4 border">{reservation.id}</td>
-                <td className="py-2 px-4 border">{reservation.date}</td>
-                <td className="py-2 px-4 border">{reservation.city}</td>
-                <td className="py-2 px-4 border">{reservation.doctor.name}</td>
-                {/* Add more cells based on reservation properties */}
-              </tr>
-            );
-          })}
+          {reservations.map((reservation) => (
+            <tr key={reservation.id} className="bg-white hover:bg-gray-100">
+              <td className="py-2 px-4 border">{reservation.id}</td>
+              <td className="py-2 px-4 border">{reservation.date}</td>
+              <td className="py-2 px-4 border">{reservation.city}</td>
+              <td className="py-2 px-4 border">{reservation.doctor.name}</td>
+              {/* Add more cells based on reservation properties */}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

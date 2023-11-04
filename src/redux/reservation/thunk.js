@@ -9,7 +9,7 @@ const url = 'https://bookitnow-kk0q.onrender.com/api/v1'; // Replace with your A
 export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async (userId, thunkAPI) => {
   try {
     const response = await axios.get(`${url}/users/${userId}/reservations`);
-    console.log('Redux Store State:', response.data);
+    //    console.log('Redux Store State:', response.data);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
