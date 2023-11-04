@@ -29,9 +29,9 @@
 
 # BookItNow <a name="about-project"></a>
 
-The BookItnow - is an Online Doctor Reservation web application designed to provide users with the ability to reserve, view, and manage doctors and doctor appointment reservation . The system aims to streamline the process of finding and booking doctors from various locations, making it convenient for both users and motor providers.
+The BookItnow - is an Online Doctor Reservation web application designed to provide users with the ability to reserve, view, and manage doctors and doctor appointment reservation . The system aims to streamline the process of finding and booking doctors from various locations
 
-#### Link to [Backend](https://github.com/binodbhusal/final_capstone_backend)
+#### Link to [Backend](https://github.com/cosywasswa/BookItNow-back-end)
 
 ## 🛠 Built With <a name="built-with"></a>
 
