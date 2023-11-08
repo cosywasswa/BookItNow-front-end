@@ -67,7 +67,7 @@ Link to the [Kanban Board](https://github.com/cosywasswa/BookItNow-back-end/proj
 
 All 3 Authors have been contributing to this project from start to finish
 
-You can find the initial snapshot and setup of the Kanban board [here](https://github.com/cosywasswa/BookItNow-back-end/issues).
+You can find the initial snapshot and setup of the Kanban board [here](https://user-images.githubusercontent.com/108003893/277959051-ce55b2ce-d77d-47ba-a3bb-6327d179d355.png).
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
