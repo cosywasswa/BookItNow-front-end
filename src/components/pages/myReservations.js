@@ -35,7 +35,7 @@ const MyReservations = () => {
         </thead>
         <tbody>
           {reservations.map((reservation) => (
-            <tr key={reservation.id} className="bg-white hover:bg-gray-100">
+            <tr key={reservation.id} className="bg-grey hover:bg-gray-100">
               <td className="py-2 px-4 border">{reservation.id}</td>
               <td className="py-2 px-4 border">{reservation.date}</td>
               <td className="py-2 px-4 border">{reservation.city}</td>
